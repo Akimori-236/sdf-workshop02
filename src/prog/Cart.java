@@ -1,11 +1,11 @@
 package prog;
 
 import java.io.Console;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.LinkedList;
 
-import cart.Apple;
 import cart.Item;
+import cart.Apple;
 import cart.Orange;
 
 public class Cart {
@@ -28,25 +28,37 @@ public class Cart {
                     break;
 
                 case "add":
-                    // System.out.println(input[1]);
-                    switch (input[1]) {
-                        case "apple":
-                            // System.out.println(input[1]);
-                            Item apple = new Apple();
-                            apple.setQuantity(Integer.parseInt(input[2]));
-                            apple.setPrice(Float.parseFloat(input[3]));
-                            cart.add(apple);
-                            break;
+                    if (1 < input.length && input.length < 5) {
+                        switch (input[1]) {
+                            case "apple":
+                                try {
+                                    Item apple = new Apple();
+                                    apple.setQuantity(Integer.parseInt(input[2]));
+                                    apple.setPrice(Float.parseFloat(input[3]));
+                                    cart.add(apple);
+                                } catch (Exception e) {
+                                    System.err.println(
+                                            "----------\nadd item price qty\nexample: add apple 10 0.5\n----------");
+                                }
+                                break;
 
-                        case "orange":
-                            Item orange = new Orange();
-                            orange.setQuantity(Integer.parseInt(input[2]));
-                            orange.setPrice(Float.parseFloat(input[3]));
-                            cart.add(orange);
-                            break;
+                            case "orange":
+                                try {
+                                    Item orange = new Orange();
+                                    orange.setQuantity(Integer.parseInt(input[2]));
+                                    orange.setPrice(Float.parseFloat(input[3]));
+                                    cart.add(orange);
+                                } catch (Exception e) {
+                                    System.err.println(
+                                            "----------\nadd item price qty\nexample: add orange 10 0.5\n----------");
+                                }
+                                break;
 
-                        default:
-
+                            default:
+                                System.err.println("Sorry, can only add apple or orange.");
+                        }
+                    } else {
+                        System.err.println("----------\nadd item price qty\nexample: add apple 10 0.5\n----------");
                     }
                     break;
 
@@ -57,6 +69,8 @@ public class Cart {
                     break;
 
                 default:
+                    System.err.println(
+                            "---List of options---\nlist \t\t- List out the contents of the cart\nadd \t\t- Add items into cart (add item price qty)\nstop/checkout \t- Displays total price of cart and exits program");
             }
         }
     }
