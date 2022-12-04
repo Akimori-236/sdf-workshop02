@@ -26,7 +26,7 @@ public class Main {
 
         Item item = apple;
         System.out.println(item.getCode());
-        orange = (Orange)item; //this will throw CLASS ERROR as Item item was Apple
+        orange = (Orange)item; //this will throw ClassCastException as Item item was Apple
 
         if (item instanceof Orange) { // check if item is orange before casting it
             item = (Orange)item; // WILL NOT RUN
