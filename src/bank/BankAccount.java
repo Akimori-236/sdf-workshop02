@@ -73,15 +73,19 @@ public class BankAccount {
     public void deposit(String money) {
         if (!closed) {
             Date d = new Date();
-            setTransactions("deposit " + money + " at " d.getTime());
-        } else {throw IllegalArgumentException;}
+            // setTransactions("deposit " + money + " at " d.getTime());
+        } else {
+            // throw IllegalArgumentException;
+        }
         
     }
 
     public void withdraw(String money) {
         if (!closed) {
             Date d = new Date();
-            setTransactions("deposit " + money + " at " d.getTime());
-        } else {throw IllegalArgumentException;}
+            // setTransactions("deposit " + money + " at " d.getTime());
+        } else {
+            // throw IllegalArgumentException;
+        }
     }
 }
